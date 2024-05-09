@@ -1,0 +1,15 @@
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.client-table th, .client-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.client-table th {
+    background-color: #f2f2f2;
+}
