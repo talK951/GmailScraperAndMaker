@@ -1,6 +1,34 @@
 .box {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    border:1px solid black;
+}
+
+.container {
+    width: 96%;
     display:grid;
-    background-color: red;
-    gap: 3px;
-    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    font-size: large;
+}
+
+.information {
+    grid-column: span 2;
+}
+
+.information > .textbox {
+    width: 600px;
+    height: 100px;
+}
+
+.buttondiv, .grid-item-1 {
+    grid-column: span 2;
+    display:flex;
+    justify-content: space-between;
+}
+
+.buttondiv > button {
+    width: 100px;
 }
