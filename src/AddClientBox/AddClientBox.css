@@ -1,0 +1,6 @@
+.box {
+    display:grid;
+    background-color: red;
+    gap: 3px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
