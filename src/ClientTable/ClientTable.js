@@ -1,14 +1,20 @@
 import React from 'react';
+import { useState } from "react";
 import './ClientTable.css';
+import { Client } from '.././Utils/Client.js';
 
 
 export function ClientTable() {
-    const clientsList = [
-        {id:1, name:"Mayooran", email:"a@gmail.com", info:"credit=a"},
-        {id:2, name:"Peter", email:"b@gmail.com", info:"credit=b"},
-        {id:3, name:"Anna",email:"c@gmail.com", info:"credit=c"},
-        {id:4, name:"Suren", email:"d@gmail.com", info:"credit=d"}];//props.clientsList;
+    const [clientsList, setClientList] = useState([ 
+        new Client(1, "a", "a@gmail.com", "a"),
+        new Client(2, "b", "b@gmail.com", "b"),
+        new Client(3, "c", "c@gmail.com", "c"),
+        new Client(4, "d", "d@gmail.com", "d"),
+    ]);
 
+    function removeClient(clientId) {
+        setClientList(clientsList.filter(client => client.id !== clientId));
+    }
 
     return (
         <>
@@ -28,7 +34,12 @@ export function ClientTable() {
                         <td>{row.id}</td>
                         <td>{row.name}</td>
                         <td>{row.email}</td>
-                        <td>{row.info}</td>
+                        <td>
+                            <div className='remove-button'>{row.info}</div>
+                            <div className='remove-button'>
+                                <button onClick={ () => removeClient(row.id) }>X</button>
+                            </div>
+                        </td>
                     </tr>
                 ))}
                 </tbody>

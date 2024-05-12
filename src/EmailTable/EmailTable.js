@@ -1,14 +1,21 @@
 import React from 'react';
 import './EmailTable.css';
+import { useState } from "react";
+import { Email } from '../Utils/Email';
 
 
 export function EmailTable() {
-    const clientsList = [
-        {id:1, email:"a@gmail.com", file:"file1"},
-        {id:2, email:"a@gmail.com", file:"file2"},
-        {id:3, email:"a@gmail.com", file:"file3"},
-        {id:4, email:"a@gmail.com", file:"file4"}];//props.clientsList;
+    const [emailList, setEmailList] = useState([ 
+        new Email(1, "a@gmail.com", "File1"),
+        new Email(2, "a@gmail.com", "File2"),
+        new Email(3, "a@gmail.com", "File3"),
+        new Email(4, "a@gmail.com", "File4"),
+    ]);
 
+
+    function removeEmail(emailId) {
+        setEmailList(emailList.filter(email => email.id !== emailId));
+    }
 
     return (
         <>
@@ -21,11 +28,16 @@ export function EmailTable() {
                     </tr>
                 </thead>
                 <tbody>
-                {clientsList.map((row) => (
+                {emailList.map((row) => (
                     <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.email}</td>
-                        <td>{row.file}</td>
+                        <td>
+                            <div className='remove-button'>{row.files}</div>
+                            <div className='remove-button'>
+                                <button onClick={ () => removeEmail(row.id) }>X</button>
+                            </div>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
