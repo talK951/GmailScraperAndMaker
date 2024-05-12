@@ -16,18 +16,21 @@ const AddClientBox = () => {
                 { id: idCount++, name: name, email: email, info: info} // and one new item at the end
             ]
         );
+        setName("");
+        setEmail("")
+        setInfo("")
     }
 
     return (
         <div className="box">
             <div className="container">
                 <div className="grid-item-1">
-                    <div>Name: <input type="text" className="textbox" onChange={(evt) => { setName(evt.target.value) }}/></div>
-                    <div>Email: <input type="text" className="textbox" onChange={(evt) => { setEmail(evt.target.value) }}/></div>
+                    <div>Name: <input type="text" value={name} className="textbox" onChange={(evt) => { setName(evt.target.value)}}/></div>
+                    <div>Email: <input type="text" value={email} className="textbox" onChange={(evt) => { setEmail(evt.target.value) }}/></div>
                 </div>
 
                 <div className="information">
-                    Information: <input type="text" className="textbox" onChange={(evt) => { setInfo(evt.target.value) }}/>
+                    Information: <input type="text" value={info} className="textbox" onChange={(evt) => { setInfo(evt.target.value) }}/>
                 </div>
 
                 {/* print clients */}
