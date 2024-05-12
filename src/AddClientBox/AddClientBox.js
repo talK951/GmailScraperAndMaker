@@ -17,8 +17,8 @@ const AddClientBox = () => {
             ]
         );
         setName("");
-        setEmail("")
-        setInfo("")
+        setEmail("");
+        setInfo("");
     }
 
     return (
@@ -30,7 +30,8 @@ const AddClientBox = () => {
                 </div>
 
                 <div className="information">
-                    Information: <input type="text" value={info} className="textbox" onChange={(evt) => { setInfo(evt.target.value) }}/>
+                    <label htmlFor="info-text-area">Information:</label>
+                    <textarea id="info-text-area" type="text" value={info} className="textbox" onChange={(evt) => { setInfo(evt.target.value) }}/>
                 </div>
 
                 {/* print clients */}
@@ -43,7 +44,6 @@ const AddClientBox = () => {
                     </ul>
                 ))
                 } */}
-
 
                 <div className="button-div">
                     <button type="button">Upload Files</button>

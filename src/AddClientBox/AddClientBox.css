@@ -16,6 +16,11 @@
 
 .information {
     grid-column: span 2;
+    display:flex;
+}
+
+.information > label {
+    padding-right: 10px;
 }
 
 .information > .textbox {
