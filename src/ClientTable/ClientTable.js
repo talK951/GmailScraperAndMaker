@@ -18,7 +18,6 @@ export function ClientTable() {
 
     return (
         <>
-            <button>TESTING</button>
             <table className='client-table'>
                 <thead>
                     <tr>
