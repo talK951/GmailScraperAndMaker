@@ -4,13 +4,9 @@ import { useState } from "react";
 import { Email } from '../Utils/Email';
 
 
-export function EmailTable() {
-    const [emailList, setEmailList] = useState([ 
-        new Email(1, "a@gmail.com", "File1"),
-        new Email(2, "a@gmail.com", "File2"),
-        new Email(3, "a@gmail.com", "File3"),
-        new Email(4, "a@gmail.com", "File4"),
-    ]);
+export function EmailTable(props) {
+    const emailList = props.emailsList;
+    const setEmailList = props.setEmailsList;
 
 
     function removeEmail(emailId) {

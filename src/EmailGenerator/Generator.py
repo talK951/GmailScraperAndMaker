@@ -1,12 +1,9 @@
 import sys
 
 argv = sys.argv
-id, name, email, info, instructions = argv
-
+filename, id, name, email, info, instructions = argv
 text = instructions[:]
-
-instructions.replace("\{name\}", name)
-instructions.replace("\{email\}", email)
-instructions.replace("\{info\}", info)
-
+text = text.replace("{name}", name)
+text = text.replace("{email}", email)
+text = text.replace("{info}", info)
 print([id, text])

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './EmailGenerator.css';
 import { Email } from '../Utils/Email.js';
 
@@ -6,6 +5,7 @@ import { Email } from '../Utils/Email.js';
 
 export function EmailGenerator(props) {
     const clientsList = props.clientsList;
+    const setEmailsGenerated = props.setEmailsGenerated;
 
     function _generateEmail(id, name, email, info, instructions) {
         console.log(id);
@@ -19,10 +19,12 @@ export function EmailGenerator(props) {
     function generateEmails() {
         let emailList = [];
         let emailInstructions = document.getElementById("instructionsId").value;
+        console.log(emailInstructions);
         for (let i = 0; i < clientsList.length; i++) {
-            let emailText = _generateEmail(client[i].id, client[i].name, client[i].email, client[i].info, emailInstructions);
-            emailList.push(Email(client[i].id, emailText, "FILES_FAKE"));
+            let emailText = _generateEmail(clientsList[i].id, clientsList[i].name, clientsList[i].email, clientsList[i].info, emailInstructions);
+            emailList.push(new Email(clientsList[i].id, emailText, "FILES_FAKE"));
         }
+        setEmailsGenerated(emailList);
     }
 
     return (
