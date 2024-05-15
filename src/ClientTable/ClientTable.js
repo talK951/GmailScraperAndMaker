@@ -1,16 +1,11 @@
 import React from 'react';
-import { useState } from "react";
 import './ClientTable.css';
-import { Client } from '.././Utils/Client.js';
 
 
-export function ClientTable() {
-    const [clientsList, setClientList] = useState([ 
-        new Client(1, "a", "a@gmail.com", "a"),
-        new Client(2, "b", "b@gmail.com", "b"),
-        new Client(3, "c", "c@gmail.com", "c"),
-        new Client(4, "d", "d@gmail.com", "d"),
-    ]);
+export function ClientTable(props) {
+    const clientsList = props.clientsList;
+    const setClientList = props.setClientList;
+
 
     function removeClient(clientId) {
         setClientList(clientsList.filter(client => client.id !== clientId));
@@ -18,7 +13,6 @@ export function ClientTable() {
 
     return (
         <>
-            <button>TESTING</button>
             <table className='client-table'>
                 <thead>
                     <tr>
