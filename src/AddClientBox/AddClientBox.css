@@ -1,0 +1,39 @@
+.box {
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    border:1px solid black;
+}
+
+.container {
+    width: 96%;
+    display:grid;
+
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    font-size: large;
+}
+
+.information {
+    grid-column: span 2;
+    display:flex;
+}
+
+.information > label {
+    padding-right: 10px;
+}
+
+.information > .textbox {
+    width: 600px;
+    height: 100px;
+}
+
+.button-div, .grid-item-1 {
+    grid-column: span 2;
+    display:flex;
+    justify-content: space-between;
+}
+
+.button-div > button {
+    width: 100px;
+}
