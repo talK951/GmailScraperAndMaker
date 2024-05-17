@@ -13,3 +13,8 @@
 .client-table th {
     background-color: #f2f2f2;
 }
+
+.remove-button {
+    width: 30%;
+    display: inline-block;
+}

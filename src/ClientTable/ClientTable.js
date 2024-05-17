@@ -2,17 +2,17 @@ import React from 'react';
 import './ClientTable.css';
 
 
-export function ClientTable() {
-    const clientsList = [
-        {id:1, name:"Mayooran", email:"a@gmail.com", info:"credit=a"},
-        {id:2, name:"Peter", email:"b@gmail.com", info:"credit=b"},
-        {id:3, name:"Anna",email:"c@gmail.com", info:"credit=c"},
-        {id:4, name:"Suren", email:"d@gmail.com", info:"credit=d"}];//props.clientsList;
+export function ClientTable(props) {
+    const clientsList = props.clientsList;
+    const setClientList = props.setClientList;
 
+
+    function removeClient(clientId) {
+        setClientList(clientsList.filter(client => client.id !== clientId));
+    }
 
     return (
         <>
-            <button>TESTING</button>
             <table className='client-table'>
                 <thead>
                     <tr>
@@ -28,7 +28,12 @@ export function ClientTable() {
                         <td>{row.id}</td>
                         <td>{row.name}</td>
                         <td>{row.email}</td>
-                        <td>{row.info}</td>
+                        <td>
+                            <div className='remove-button'>{row.info}</div>
+                            <div className='remove-button'>
+                                <button onClick={ () => removeClient(row.id) }>X</button>
+                            </div>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
