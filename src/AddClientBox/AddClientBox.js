@@ -34,17 +34,6 @@ const AddClientBox = () => {
                     <textarea id="info-text-area" type="text" value={info} className="textbox" onChange={(evt) => { setInfo(evt.target.value) }}/>
                 </div>
 
-                {/* print clients */}
-                {/* {clients.map((item) =>(
-                    <ul>
-                        <li>{item.id}</li>
-                        <li>{item.name}</li>
-                        <li>{item.email}</li>
-                        <li>{item.info}</li>
-                    </ul>
-                ))
-                } */}
-
                 <div className="button-div">
                     <button type="button">Upload Files</button>
                     <button type="button" onClick={() => addClient(name, email, info)}>Add Content</button>

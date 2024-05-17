@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <ClientTable />
-        <EmailTable />
         <AddClientBox />
+        <EmailTable />
       </header>
       
     </div>
