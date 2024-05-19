@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './AddClientBox.css';
 
 let idCount = 0;
-const AddClientBox = () => {
+export function AddClientBox() {
     const [clients, setClients] = useState([]);
 
     const [name, setName] = useState("");
@@ -42,5 +42,3 @@ const AddClientBox = () => {
         </div>
      );
 }
- 
-export default AddClientBox;

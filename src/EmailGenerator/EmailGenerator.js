@@ -1,4 +1,5 @@
 import './EmailGenerator.css';
+import axios from 'axios';
 import { Email } from '../Utils/Email.js';
 
 
@@ -6,6 +7,20 @@ import { Email } from '../Utils/Email.js';
 export function EmailGenerator(props) {
     const clientsList = props.clientsList;
     const setEmailsGenerated = props.setEmailsGenerated;
+
+    const sendDataToFlask = () => {
+        let emailInstructions = document.getElementById("instructionsId").value;
+        axios.post('/flask-route', { clientsList,  text: emailInstructions})
+            .then(response => {
+                // Handle response from Flask if needed
+                setEmailsGenerated(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                // Handle error if needed
+                console.error('Error:', error);
+            });
+    };
 
     function _generateEmail(id, name, email, info, instructions) {
         console.log(id);
@@ -45,7 +60,7 @@ export function EmailGenerator(props) {
                     </tr>
                 </tbody>
             </table>
-            <button onClick={ () => generateEmails() }>Generate Emails</button>
+            <button onClick={ () => sendDataToFlask() }>Generate Emails</button>
         </>
     )
 }
