@@ -6,11 +6,11 @@ app = Flask(__name__)
 def edit_email_text(emailText, client):
     emailText = emailText.replace("{name}", client["name"])
     emailText = emailText.replace("{info}", client["info"])
-    emailText = emailText.replace("{info}", client["email"])
+    emailText = emailText.replace("{email}", client["email"])
 
     return emailText
 
-@app.route('/flask-route', methods=['POST'])
+@app.route('/flask-email-generator', methods=['POST'])
 def receive_data():
     data = request.json  # Get JSON data from the request
     emailList = []

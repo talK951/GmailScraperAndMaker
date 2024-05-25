@@ -7,13 +7,12 @@ export function EmailGenerator(props) {
     const clientsList = props.clientsList;
     const setEmailsGenerated = props.setEmailsGenerated;
 
-    const sendDataToFlask = () => {
+    const generateEmails = () => {
         let emailInstructions = document.getElementById("instructionsId").value;
-        axios.post('/flask-route', { clientsList,  text: emailInstructions})
+        axios.post('/flask-email-generator', {clientsList,  text: emailInstructions})
             .then(response => {
                 // Handle response from Flask
                 setEmailsGenerated(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 // Handle error
@@ -39,7 +38,7 @@ export function EmailGenerator(props) {
                     </tr>
                 </tbody>
             </table>
-            <button onClick={ () => sendDataToFlask() }>Generate Emails</button>
+            <button onClick={ () => generateEmails() }>Generate Emails</button>
         </>
     )
 }
