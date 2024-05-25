@@ -1,31 +1,24 @@
 import './EmailGenerator.css';
+import axios from 'axios';
 import { Email } from '../Utils/Email.js';
-
 
 
 export function EmailGenerator(props) {
     const clientsList = props.clientsList;
     const setEmailsGenerated = props.setEmailsGenerated;
 
-    function _generateEmail(id, name, email, info, instructions) {
-        console.log(id);
-        console.log(name);
-        console.log(email);
-        console.log(info);
-        console.log(instructions);
-        return "";
-    }
-
-    function generateEmails() {
-        let emailList = [];
+    const generateEmails = () => {
         let emailInstructions = document.getElementById("instructionsId").value;
-        console.log(emailInstructions);
-        for (let i = 0; i < clientsList.length; i++) {
-            let emailText = _generateEmail(clientsList[i].id, clientsList[i].name, clientsList[i].email, clientsList[i].info, emailInstructions);
-            emailList.push(new Email(clientsList[i].id, emailText, "FILES_FAKE"));
-        }
-        setEmailsGenerated(emailList);
-    }
+        axios.post('/flask-email-generator', {clientsList,  text: emailInstructions})
+            .then(response => {
+                // Handle response from Flask
+                setEmailsGenerated(response.data);
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Error:', error);
+            });
+    };
 
     return (
         <>
