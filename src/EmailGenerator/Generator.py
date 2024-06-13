@@ -33,7 +33,7 @@ def send_email():
         html="<h1>Hi, this is HTML body.</h1>"
     )
 
-    return 5
+    return []
 
 if __name__ == "__main__":
     app.run(debug=True)

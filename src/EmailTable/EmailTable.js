@@ -19,7 +19,6 @@ export function EmailTable(props) {
         .then(response => {
             // Handle response from Flask
             console.log(response.data)
-            
         })
         .catch(error => {
             // Handle error
