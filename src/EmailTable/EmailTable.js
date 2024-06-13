@@ -2,6 +2,7 @@ import React from 'react';
 import './EmailTable.css';
 import { useState } from "react";
 import { Email } from '../Utils/Email';
+import axios from 'axios';
 
 
 export function EmailTable(props) {
@@ -11,6 +12,19 @@ export function EmailTable(props) {
 
     function removeEmail(emailId) {
         setEmailList(emailList.filter(email => email.id !== emailId));
+    }
+
+    function sendEmail() {
+        axios.post('/send-email', {})
+        .then(response => {
+            // Handle response from Flask
+            console.log(response.data)
+            
+        })
+        .catch(error => {
+            // Handle error
+            console.error('Error:', error);
+        });
     }
 
     return (
@@ -32,6 +46,7 @@ export function EmailTable(props) {
                             <div className='remove-button'>{row.files}</div>
                             <div className='remove-button'>
                                 <button onClick={ () => removeEmail(row.id) }>X</button>
+                                <button onClick={ () => sendEmail() }>Send</button>
                             </div>
                         </td>
                     </tr>
