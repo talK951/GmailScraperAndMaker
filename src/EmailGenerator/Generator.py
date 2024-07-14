@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import json
 app = Flask(__name__)
-
+from redmail import gmail
 
 def edit_email_text(emailText, client):
     emailText = emailText.replace("{name}", client["name"])
@@ -21,6 +21,19 @@ def receive_data():
         emailList.append({"id": client["id"], "email": emailText, "files": "FILES_FAKE"})
     
     return emailList
+
+@app.route('/send-email', methods=['POST'])
+def send_email():
+    gmail.username = "kohyunmcleod@gmail.com"
+    gmail.password = "gmail app password here"
+    gmail.send(
+        subject="An example email",
+        receivers=["kohyunmcleod@gmail.com"],
+        text="Hi, this is text body.",
+        html="<h1>Hi, this is HTML body.</h1>"
+    )
+
+    return []
 
 if __name__ == "__main__":
     app.run(debug=True)
