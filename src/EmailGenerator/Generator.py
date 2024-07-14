@@ -25,7 +25,7 @@ def receive_data():
 @app.route('/send-email', methods=['POST'])
 def send_email():
     gmail.username = "kohyunmcleod@gmail.com"
-    gmail.password = "psil vnye abop yihm"
+    gmail.password = "gmail app password here"
     gmail.send(
         subject="An example email",
         receivers=["kohyunmcleod@gmail.com"],
