@@ -20,6 +20,7 @@ export function ClientTable(props) {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Info</th>
+                        <th>Website</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,8 +29,9 @@ export function ClientTable(props) {
                         <td>{row.id}</td>
                         <td>{row.name}</td>
                         <td>{row.email}</td>
+                        <td>{row.info}</td>
                         <td>
-                            <div className='remove-button'>{row.info}</div>
+                            <div className='remove-button'>{row.website}</div>
                             <div className='remove-button'>
                                 <button onClick={ () => removeClient(row.id) }>X</button>
                             </div>
