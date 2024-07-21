@@ -42,8 +42,10 @@ def receive_data():
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
+    data = request.json
+    gmailPwd = data["emailPwd"]
     gmail.username = "kohyunmcleod@gmail.com"
-    gmail.password = "psil vnye abop yihm"
+    gmail.password = gmailPwd
     gmail.send(
         subject="An example email",
         receivers=["kohyunmcleod@gmail.com"],

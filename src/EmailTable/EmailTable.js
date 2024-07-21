@@ -15,7 +15,8 @@ export function EmailTable(props) {
     }
 
     function sendEmail() {
-        axios.post('/send-email', {})
+        let emailPwd = prompt("enter ur pwd")
+        axios.post('/send-email', {emailPwd: emailPwd})
         .then(response => {
             // Handle response from Flask
             console.log(response.data)
