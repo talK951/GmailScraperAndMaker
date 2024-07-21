@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup 
 import json
 app = Flask(__name__)
+from redmail import gmail
 
 
 def construct_email(emailText, client):
@@ -38,6 +39,19 @@ def receive_data():
         emailList.append({"id": client["id"], "email": emailText, "files": "FILES_FAKE"})
     
     return emailList
+
+@app.route('/send-email', methods=['POST'])
+def send_email():
+    gmail.username = "kohyunmcleod@gmail.com"
+    gmail.password = "psil vnye abop yihm"
+    gmail.send(
+        subject="An example email",
+        receivers=["kohyunmcleod@gmail.com"],
+        text="Hi, this is text body.",
+        html="<h1>Hi, this is HTML body.</h1>"
+    )
+
+    return []
 
 if __name__ == "__main__":
     app.run(debug=True)
