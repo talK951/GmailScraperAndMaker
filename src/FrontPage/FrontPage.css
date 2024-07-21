@@ -4,9 +4,10 @@
 body {
     font-family: "Sono", sans-serif;
   }
-/* .page {
-    border: 10px solid red
-} */
+.page {
+    /* border: 10px solid red; */
+    width: 100%;
+}
 
 .bar {
     display: flex;
