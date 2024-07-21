@@ -12,7 +12,7 @@ export function ClientTable(props) {
     }
 
     return (
-        <div>
+        <div className = "box">
             <table className='client-table'>
                 <thead>
                     <tr>
@@ -21,21 +21,18 @@ export function ClientTable(props) {
                         <th>Email</th>
                         <th>Info</th>
                         <th>Website</th>
+                        <th>Remove</th>
                     </tr>
                 </thead>
                 <tbody>
                 {clientsList.map((row) => (
                     <tr key={row.id}>
-                        <td>{row.id}</td>
+                        <td className='id'>{row.id}</td>
                         <td>{row.name}</td>
                         <td>{row.email}</td>
                         <td>{row.info}</td>
-                        <td>
-                            <div className='remove-button'>{row.website}</div>
-                            <div className='remove-button'>
-                                <button onClick={ () => removeClient(row.id) }>X</button>
-                            </div>
-                        </td>
+                        <td>{row.website}</td>
+                        <td><button className = "x-button" onClick={ () => removeClient(row.id) }>X</button></td>
                     </tr>
                 ))}
                 </tbody>

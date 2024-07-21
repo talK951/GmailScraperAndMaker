@@ -1,17 +1,22 @@
+.email-table-box {
+    margin-bottom: 5vh;
+    background-color: white;
+}
+
 .email-table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
+.email-table th {
+    background-color: #dddddd;
+}
+
 
 .email-table th, .email-table td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-}
-
-.email-table th {
-    background-color: #f2f2f2;
 }
 
 .remove-button {

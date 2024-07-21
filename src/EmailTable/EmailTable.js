@@ -28,7 +28,7 @@ export function EmailTable(props) {
     }
 
     return (
-        <>
+        <div className='box email-table-box'>
             <table className='email-table'>
                 <thead>
                     <tr>
@@ -40,7 +40,7 @@ export function EmailTable(props) {
                 <tbody>
                 {emailList.map((row) => (
                     <tr key={row.id}>
-                        <td>{row.id}</td>
+                        <td className='id'>{row.id}</td>
                         <td>{row.email}</td>
                         <td>
                             <div className='remove-button'>{row.files}</div>
@@ -53,6 +53,7 @@ export function EmailTable(props) {
                 ))}
                 </tbody>
             </table>
-        </>
+        </div>
+
     )
 }

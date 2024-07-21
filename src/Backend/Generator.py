@@ -6,15 +6,6 @@ app = Flask(__name__)
 from redmail import gmail
 
 
-def construct_email(emailText, client):
-    emailText = emailText.replace("{name}", client["name"])
-    emailText = emailText.replace("{info}", client["info"])
-    emailText = emailText.replace("{email}", client["email"])
-    content = scrape_url(client["website"])
-    emailText = emailText.replace("{content}", content)
-    print(emailText)
-    return emailText
-
 def scrape_url(url: str):
     response = requests.get(url=url) # Gets raw HTML from url
 
@@ -34,8 +25,10 @@ def receive_data():
     emailList = []
 
     for client in data["clientsList"]:
-        emailText = data["text"]
-        emailText = construct_email(emailText, client)
+        # instead of manually modyfying the values, use chatgpt to construct an emailText, and add that emailText to emailList.
+        content = scrape_url(client["website"])
+        # use client["name"], client["info"], cleint["email"], and content as chatgpt input.
+        emailText = "chatgpt output"
         emailList.append({"id": client["id"], "email": emailText, "files": "FILES_FAKE"})
     
     return emailList
@@ -45,10 +38,11 @@ def send_email():
     data = request.json
     gmailPwd = data["emailPwd"]
     gmail.username = "kohyunmcleod@gmail.com"
+    # for testing purposes, replace gmailPwd below with psil vnye abop yihm
     gmail.password = gmailPwd
     gmail.send(
         subject="An example email",
-        receivers=["kohyunmcleod@gmail.com"],
+        receivers=["kohyunmcleod@gmail.com, kleimantal100@gmail.com"],
         text="Hi, this is text body.",
         html="<h1>Hi, this is HTML body.</h1>"
     )

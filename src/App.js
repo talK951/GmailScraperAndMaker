@@ -1,7 +1,6 @@
 import { ClientTable } from './ClientTable/ClientTable.js';
 import { AddClientBox } from './AddClientBox/AddClientBox.js';
 import { EmailTable } from './EmailTable/EmailTable.js';
-import { EmailGenerator } from './EmailGenerator/EmailGenerator.js';
 import { Client } from './Utils/Client.js';
 import { useState } from "react";
 import { FrontPage } from './FrontPage/FrontPage.js';
@@ -22,8 +21,8 @@ function App() {
       <header className="App-header">
         <FrontPage/>
         <ClientTable clientsList={ clientsList } setClientList={setClientList}/>
-        <AddClientBox clientsList={ clientsList } setClientList={setClientList}/>
-        <EmailGenerator clientsList={ clientsList } setEmailsGenerated={setEmailsGenerated}/>
+        <AddClientBox clientsList={ clientsList } setClientList={setClientList} setEmailsGenerated={setEmailsGenerated}/>
+        {/* <EmailGenerator clientsList={ clientsList } setEmailsGenerated={setEmailsGenerated}/> */}
         <EmailTable emailsList={emailsGenerated} setEmailsList={setEmailsGenerated}/>
       </header>
     </div>

@@ -2,6 +2,7 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
+    background-color: white;
 }
 
 .client-table th, .client-table td {
@@ -11,10 +12,13 @@
 }
 
 .client-table th {
-    background-color: #f2f2f2;
+    background-color: #dddddd;
 }
 
-.remove-button {
-    width: 30%;
-    display: inline-block;
+.id {
+    background-color: #dddddd;
+}
+
+.x-button {
+    margin-left: 15%;
 }

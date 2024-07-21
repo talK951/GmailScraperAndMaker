@@ -1,8 +1,6 @@
 import React from 'react';
 import './FrontPage.css';
 
-
-
 export function FrontPage() {
     return (
         <div className="page">

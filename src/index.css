@@ -5,13 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eee8d5;
 }
 
 .App-header {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
+  gap:30px;
 }
 
 code {

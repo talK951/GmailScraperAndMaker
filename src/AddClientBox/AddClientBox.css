@@ -4,11 +4,13 @@
     justify-content: center;
     border:1px solid black;
 }
+.add-client-box {
+    background-color: #dddddd;
+}
 
 .container {
     width: 96%;
     display:grid;
-
     gap: 12px;
     grid-template-columns: 1fr 1fr;
     font-size: large;
