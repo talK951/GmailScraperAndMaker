@@ -12,7 +12,7 @@ export function ClientTable(props) {
     }
 
     return (
-        <>
+        <div>
             <table className='client-table'>
                 <thead>
                     <tr>
@@ -40,6 +40,7 @@ export function ClientTable(props) {
                 ))}
                 </tbody>
             </table>
-        </>
+        </div>
+
     )
 }
