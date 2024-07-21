@@ -8,10 +8,10 @@ import { useState } from "react";
 function App() {
 
   const [clientsList, setClientList] = useState([ 
-    new Client(1, "a", "a@gmail.com", "a"),
-    new Client(2, "b", "b@gmail.com", "b"),
-    new Client(3, "c", "c@gmail.com", "c"),
-    new Client(4, "d", "d@gmail.com", "d"),
+    new Client(1, "a", "a@gmail.com", "a", "https://toscrape.com/"),
+    new Client(2, "b", "b@gmail.com", "b", "https://toscrape.com/"),
+    new Client(3, "c", "c@gmail.com", "c", "https://toscrape.com/"),
+    new Client(4, "d", "d@gmail.com", "d", "https://toscrape.com/"),
   ]);
 
   const [emailsGenerated, setEmailsGenerated] = useState([]);
