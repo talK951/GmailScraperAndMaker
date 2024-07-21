@@ -28,6 +28,20 @@
     height: 100px;
 }
 
+.website {
+    grid-column: span 2;
+    display:flex;
+}
+
+.website > label {
+    padding-right: 10px;
+}
+
+.website > .textbox {
+    width: 600px;
+    height: 100px;
+}
+
 .button-div, .grid-item-1 {
     grid-column: span 2;
     display:flex;

@@ -1,6 +1,5 @@
 import './EmailGenerator.css';
 import axios from 'axios';
-import { Email } from '../Utils/Email.js';
 
 
 export function EmailGenerator(props) {
