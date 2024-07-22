@@ -1,14 +1,22 @@
 .box {
-    width: 800px;
+    width: 1200px;
     display: flex;
     justify-content: center;
     border:1px solid black;
 }
+.add-client-box {
+    /* border: 10px solid black; */
+    width: 800px;
+    height: 340px;
+    background-color: #dddddd;
+    display: flex;
+    align-items: center;
+}
 
 .container {
+    /* border: 10px solid red; */
     width: 96%;
     display:grid;
-
     gap: 12px;
     grid-template-columns: 1fr 1fr;
     font-size: large;
@@ -20,7 +28,7 @@
 }
 
 .information > label {
-    padding-right: 10px;
+    padding-right: 12.2px;
 }
 
 .information > .textbox {
@@ -34,7 +42,7 @@
 }
 
 .website > label {
-    padding-right: 10px;
+    padding-right: 2px;
 }
 
 .website > .textbox {
@@ -48,6 +56,43 @@
     justify-content: space-between;
 }
 
+.grid-item-1 > .name, .grid-item-1 > .email {
+    display:flex;
+}
+
 .button-div > button {
     width: 100px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+}
+
+.add-content-button {
+    background-color: #4681f4;
+}
+
+.generate-emails-button {
+    background-color: #4681f4;
+}
+
+.add-content-button:hover {
+    background-color: #3270ed;
+}
+
+.generate-emails-button:hover {
+    background-color: #3270ed;
+}
+
+.textbox {
+    border-radius: 6px;
+    border-collapse:collapse;
+}
+
+.name > .textbox, .email > .textbox {
+    font-size: 20px;
+    height: 30px;
+}
+
+.name > label, .email > label {
+    padding-top: 3px;
 }

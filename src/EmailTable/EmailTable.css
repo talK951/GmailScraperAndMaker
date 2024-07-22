@@ -1,7 +1,16 @@
+.email-table-box {
+    margin-bottom: 5vh;
+    background-color: white;
+    width: 800px;
+}
+
 .email-table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
+}
+.email-table th {
+    background-color: #dddddd;
 }
 
 .email-table th, .email-table td {
@@ -10,11 +19,18 @@
     border-bottom: 1px solid #ddd;
 }
 
-.email-table th {
-    background-color: #f2f2f2;
+.email-table th:nth-child(2), .client-table td:nth-child(2) {
+    width: 600px; /* Set the desired width */
 }
 
-.remove-button {
-    width: 30%;
-    display: inline-block;
+.send-email {
+    background-color: #4681f4;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.send-email:hover {
+    background-color: #3270ed;
 }
