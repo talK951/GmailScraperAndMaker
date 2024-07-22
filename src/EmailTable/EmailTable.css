@@ -1,6 +1,7 @@
 .email-table-box {
     margin-bottom: 5vh;
     background-color: white;
+    width: 800px;
 }
 
 .email-table {
@@ -12,14 +13,24 @@
     background-color: #dddddd;
 }
 
-
 .email-table th, .email-table td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-.remove-button {
-    width: 30%;
-    display: inline-block;
+.email-table th:nth-child(2), .client-table td:nth-child(2) {
+    width: 600px; /* Set the desired width */
+}
+
+.send-email {
+    background-color: #4681f4;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    margin-left: 10px;
+}
+
+.send-email:hover {
+    background-color: #3270ed;
 }

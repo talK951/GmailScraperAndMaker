@@ -42,8 +42,14 @@ export function AddClientBox(props) {
         <div className="box add-client-box">
             <div className="container">
                 <div className="grid-item-1">
-                    <div>Name: <input type="text" value={name} className="textbox" onChange={(evt) => { setName(evt.target.value)}}/></div>
-                    <div>Email: <input type="text" value={email} className="textbox" onChange={(evt) => { setEmail(evt.target.value) }}/></div>
+                    <div className="name">
+                        <label htmlFor="website-text-area">Name: </label>
+                        <textarea type="text" value={name} className="textbox" onChange={(evt) => { setName(evt.target.value)}}/>
+                    </div>
+                    <div className="email">
+                        <label htmlFor="website-text-area">Email: </label>
+                        <textarea type="text" value={email} className="textbox" onChange={(evt) => { setEmail(evt.target.value) }}/>
+                    </div>
                 </div>
 
                 <div className="information">
@@ -57,9 +63,8 @@ export function AddClientBox(props) {
                 </div>
 
                 <div className="button-div">
-                    <button type="button">Upload Files</button>
-                    <button type="button" onClick={() => addClient(name, email, info, website)}>Add Content</button>
-                    <button onClick={ () => generateEmails() }>Generate Emails</button>
+                    <button className="generate-emails-button "onClick={ () => generateEmails() }>Generate Emails</button>
+                    <button className="add-content-button" type="button" onClick={() => addClient(name, email, info, website)}>Add Content</button>
                 </div>
             </div>
         </div>

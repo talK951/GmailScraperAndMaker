@@ -34,7 +34,7 @@ export function EmailTable(props) {
                     <tr>
                         <th>Id</th>
                         <th>Email</th>
-                        <th>Files</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,10 +43,9 @@ export function EmailTable(props) {
                         <td className='id'>{row.id}</td>
                         <td>{row.email}</td>
                         <td>
-                            <div className='remove-button'>{row.files}</div>
-                            <div className='remove-button'>
-                                <button onClick={ () => removeEmail(row.id) }>X</button>
-                                <button onClick={ () => sendEmail() }>Send</button>
+                            <div className='emialtable-button-div'>
+                                <button className = "x-button" onClick={ () => removeEmail(row.id) }>X</button>
+                                <button className = "send-email" onClick={ () => sendEmail() }>Send</button>
                             </div>
                         </td>
                     </tr>

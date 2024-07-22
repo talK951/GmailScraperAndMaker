@@ -16,7 +16,7 @@ export function ClientTable(props) {
             <table className='client-table'>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th className='id'>Id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Info</th>
@@ -32,7 +32,7 @@ export function ClientTable(props) {
                         <td>{row.email}</td>
                         <td>{row.info}</td>
                         <td>{row.website}</td>
-                        <td><button className = "x-button" onClick={ () => removeClient(row.id) }>X</button></td>
+                        <td><button className = "x-button" onClick={ () => removeClient(row.id) }></button></td>
                     </tr>
                 ))}
                 </tbody>
