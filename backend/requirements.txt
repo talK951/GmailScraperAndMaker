@@ -1,0 +1,3 @@
+Flask
+bs4
+requests
