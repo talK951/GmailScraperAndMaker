@@ -2,6 +2,9 @@
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
+    background-color: white;
+    word-wrap: break-word;
+    table-layout:fixed;
 }
 
 .client-table th, .client-table td {
@@ -10,11 +13,38 @@
     border-bottom: 1px solid #ddd;
 }
 
-.client-table th {
-    background-color: #f2f2f2;
+.client-table th:first-child, .client-table td:first-child {
+    width: 20px; /* Set the desired width */
+}
+.client-table th:nth-child(2), .client-table td:nth-child(2) {
+    width: 200px; /* Set the desired width */
+}
+.client-table th:nth-child(4), .client-table td:nth-child(4) {
+    width: 330px; /* Set the desired width */
+}
+.client-table th:nth-child(6), .client-table td:nth-child(6) {
+    width: 70px; /* Set the desired width */
 }
 
-.remove-button {
-    width: 30%;
-    display: inline-block;
+.client-table th {
+    background-color: #dddddd;
+}
+
+.id {
+    background-color: #dddddd;
+}
+
+.x-button {
+    height: 20px;
+    width: 20px;
+    margin-left: 30%;
+    border-radius: 25%;
+    background-color: #ED0800;
+    border: none;
+    text-align: center;
+    color: white;
+}
+
+.x-button:hover {
+    background-color: #71201d; /* Green */
 }
