@@ -1,21 +1,35 @@
 from flask import Flask, request
 import requests
 from bs4 import BeautifulSoup
-
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 
+def construct_email(client):
+    user = OpenAI(
+        api_key=  os.getenv('OPENAI_API_KEY')
+    )
 
-def construct_email(emailText, client):
-    emailText = emailText.replace("{name}", client["name"])
-    emailText = emailText.replace("{info}", client["info"])
-    emailText = emailText.replace("{email}", client["email"])
-    content = scrape_url(client["website"])
-    emailText = emailText.replace("{content}", content)
+    content = scrape_url(client["website"]) if client["website"] else ""
+
+    chat_completion = user.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": f"Construct an email to {client["name"]} with email: {client["email"]}. Here is the infomartion of the email {client["info"]} and some optional content to personalize the email: {content}",
+        }
+    ],
+    model="gpt-3.5-turbo",
+    )
+
+    emailText = chat_completion.choices[0].message.content
+    
     return emailText
 
 
-def scrape_url(url: str):
+def scrape_linkedin_url(url: str):
     response = requests.get(url=url)  # Gets raw HTML from url
 
     if response.status_code == 200:
@@ -34,8 +48,7 @@ def receive_data():
     emailList = []
 
     for client in data["clientsList"]:
-        emailText = data["text"]
-        emailText = construct_email(emailText, client)
+        emailText = construct_email(client)
         emailList.append(
             {"id": client["id"], "email": emailText, "files": "FILES_FAKE"})
 
@@ -43,4 +56,5 @@ def receive_data():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     app.run(debug=True)
